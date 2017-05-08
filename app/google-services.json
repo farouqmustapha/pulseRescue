@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "558601104100",
+    "firebase_url": "https://heartratemonitor-6794b.firebaseio.com",
+    "project_id": "heartratemonitor-6794b",
+    "storage_bucket": "heartratemonitor-6794b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:558601104100:android:3acc9166f4e07887",
+        "android_client_info": {
+          "package_name": "farouqmustapha.heartratemonitor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "558601104100-gk5v5276omfjesufbims0j93otk04v79.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "farouqmustapha.heartratemonitor",
+            "certificate_hash": "a40f83d6ee544cbd9b1a207e7c8754afc9198532"
+          }
+        },
+        {
+          "client_id": "558601104100-2hplpngpduq90i2rtb0npbcd23m37c5j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfP_pytrn-lAbdZuGeYLBXzSmSZvIq9zA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "558601104100-2hplpngpduq90i2rtb0npbcd23m37c5j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:558601104100:android:dcd60ee2baeb786c",
+        "android_client_info": {
+          "package_name": "farouqmustapha.pulserescue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "558601104100-b3an6sg358hplrtiu1q8fs1v5pcooleb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "farouqmustapha.pulserescue",
+            "certificate_hash": "a40f83d6ee544cbd9b1a207e7c8754afc9198532"
+          }
+        },
+        {
+          "client_id": "558601104100-2hplpngpduq90i2rtb0npbcd23m37c5j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfP_pytrn-lAbdZuGeYLBXzSmSZvIq9zA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "558601104100-2hplpngpduq90i2rtb0npbcd23m37c5j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
