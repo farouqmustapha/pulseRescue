@@ -106,12 +106,11 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                 } else {
                                     mDatabase = FirebaseDatabase.getInstance().getReference();
-                                    final DatabaseReference userRoleRef = mDatabase.child("AmbulanceProvider").child(auth.getCurrentUser().getUid()).child("appData").child("role");
+                                    final DatabaseReference userRoleRef = mDatabase.child("AmbulanceProvider");
                                     userRoleRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(DataSnapshot dataSnapshot) {
-                                            String role = (String) dataSnapshot.getValue();
-                                            if(role != null && role.equals("ambulance")) {
+                                            if(dataSnapshot.hasChild(auth.getCurrentUser().getUid())) {
                                                 Intent intent = new Intent(LoginActivity.this, ViewRequestsActivity.class);
                                                 startActivity(intent);
                                                 finish();
