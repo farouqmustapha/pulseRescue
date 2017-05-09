@@ -14,4 +14,5 @@
     <string name="btn_back"><![CDATA[<< Back]]></string>
     <string name="lbl_forgot_password">Forgot password?</string>
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
+    <string name="google_map_api">AIzaSyDNJcUL_NNQCwk_RFAwsxCC4uIWIizASwM</string>
 </resources>

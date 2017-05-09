@@ -290,7 +290,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="16dp"
             android:text="Patient's Next of Kin :"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -317,7 +317,29 @@
             app:layout_constraintTop_toTopOf="@+id/textView30"
             android:layout_marginStart="8dp" />
 
+        <Button
+            android:id="@+id/buttonNavigate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Navigate to patient's location"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
+        <Button
+            android:id="@+id/buttonFetch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Patient Fetched"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonNavigate" />
 
     </android.support.constraint.ConstraintLayout>
 
