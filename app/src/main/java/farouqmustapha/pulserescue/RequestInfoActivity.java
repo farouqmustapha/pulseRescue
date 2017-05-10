@@ -8,13 +8,15 @@ import android.location.Location;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.util.Linkify;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,7 +48,7 @@ import static com.google.android.gms.common.api.GoogleApiClient.*;
 public class RequestInfoActivity extends AppCompatActivity implements ConnectionCallbacks, OnConnectionFailedListener, LocationListener{
     private TextView time, status, name, age, height, weight, bloodType,
             address, phone, emergencyName, emergencyPhone, coordinate;
-    private Button buttonNavigate, buttonFetch;
+    private FloatingActionButton fabNavigate, fabFetch;
     private String mCoordinate = new String();
 
     private String KEY = new String();
@@ -86,8 +88,8 @@ public class RequestInfoActivity extends AppCompatActivity implements Connection
         emergencyName = (TextView) findViewById(R.id.requestEmergencyName);
         emergencyPhone = (TextView) findViewById(R.id.requestEmergencyPhone);
         coordinate = (TextView) findViewById(R.id.requestCoordinate);
-        buttonNavigate = (Button) findViewById(R.id.buttonNavigate);
-        buttonFetch = (Button) findViewById(R.id.buttonFetch);
+        fabNavigate = (FloatingActionButton) findViewById (R.id.fabNavigate);
+        fabFetch = (FloatingActionButton) findViewById(R.id.fabFetch);
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -100,7 +102,7 @@ public class RequestInfoActivity extends AppCompatActivity implements Connection
         } else
             Toast.makeText(this, "Not Connected!", Toast.LENGTH_SHORT).show();
 
-        buttonNavigate.setOnClickListener( new View.OnClickListener() {
+        fabNavigate.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -120,7 +122,7 @@ public class RequestInfoActivity extends AppCompatActivity implements Connection
             }
         });
 
-        buttonFetch.setOnClickListener( new View.OnClickListener() {
+        fabFetch.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 float[] dist = new float[1];
@@ -297,7 +299,6 @@ public class RequestInfoActivity extends AppCompatActivity implements Connection
 
     public void getLocation() {
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
             //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
@@ -309,16 +310,6 @@ public class RequestInfoActivity extends AppCompatActivity implements Connection
             /*Getting the location after aquiring location service*/
             mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
                     mGoogleApiClient);
-
-//            if (mLastLocation != null) {
-//                _progressBar.setVisibility(View.INVISIBLE);
-//                _latitude.setText("Latitude: " + String.valueOf(mLastLocation.getLatitude()));
-//                _longitude.setText("Longitude: " + String.valueOf(mLastLocation.getLongitude()));
-//            } else {
-//                /*if there is no last known location. Which means the device has no data for the loction currently.
-//                * So we will get the current location.
-//                * For this we'll implement Location Listener and override onLocationChanged*/
-//                Log.i("Current Location", "No data for location found");
 
             if (!mGoogleApiClient.isConnected())
                 mGoogleApiClient.connect();
@@ -334,6 +325,32 @@ public class RequestInfoActivity extends AppCompatActivity implements Connection
         mLastLocation = location;
         myLatitude = mLastLocation.getLatitude();
         myLongitude = mLastLocation.getLongitude();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent name in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_logout) {
+            auth.signOut();
+            if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                startActivity(new Intent(this, LoginActivity.class));
+            }
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }
