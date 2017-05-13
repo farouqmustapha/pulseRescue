@@ -304,6 +304,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:text="Coordinate :"
+            android:textColor="@color/black"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
             android:layout_marginStart="8dp" />
